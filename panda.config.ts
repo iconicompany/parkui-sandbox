@@ -1,8 +1,18 @@
 import { defineConfig } from '@pandacss/dev'
+import { createPreset } from '@park-ui/panda-preset'
+
 
 export default defineConfig({
   preflight: true,
-  presets: ['@pandacss/dev/presets', '@park-ui/presets'],
+  presets: [
+    '@pandacss/preset-base',
+    '@park-ui/presets',
+    createPreset({
+      accentColor: 'indigo',
+      grayColor: 'neutral',
+      borderRadius: 'sm',
+    }),
+  ],
   include: ['./src/**/*.{js,jsx,ts,tsx}', './pages/**/*.{js,jsx,ts,tsx}'],
   exclude: [],
   theme: {
